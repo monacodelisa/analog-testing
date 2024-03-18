@@ -1,10 +1,4 @@
-import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { Server } from 'node:http';
-import { tmpdir } from 'node:os';
-import { join } from 'node:path';
-import { mkdirSync } from 'node:fs';
-import { parentPort, threadId } from 'node:worker_threads';
-import { provider, isWindows } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/std-env/dist/index.mjs';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, fetchWithEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseStatus, setResponseHeader, send, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, createError, getRouterParam, getQuery as getQuery$1, readBody } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/h3/dist/index.mjs';
+import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, fetchWithEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseStatus, setResponseHeader, send, removeResponseHeader, createError, getResponseHeader, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/h3/dist/index.mjs';
 import { createFetch as createFetch$1, Headers as Headers$1 } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/ofetch/dist/node.mjs';
 import destr from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/destr/dist/index.mjs';
 import { createCall, createFetch } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/unenv/runtime/fetch/index.mjs';
@@ -13,10 +7,14 @@ import { klona } from 'file://D:/Estee/Programming/My-Projects/analog-testing/an
 import { snakeCase } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/scule/dist/index.mjs';
 import defu, { defuFn } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/defu/dist/defu.mjs';
 import { hash } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/ohash/dist/index.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/ufo/dist/index.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery, decodePath, withLeadingSlash, withoutTrailingSlash } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/ufo/dist/index.mjs';
 import { createStorage, prefixStorage } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/unstorage/dist/index.mjs';
 import unstorage_47drivers_47fs from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/unstorage/drivers/fs.mjs';
+import unstorage_47drivers_47fs_45lite from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/unstorage/drivers/fs-lite.mjs';
 import { toRouteMatcher, createRouter } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/radix3/dist/index.mjs';
+import { promises } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/pathe/dist/index.mjs';
 import _dFzPJd from '../../../../../../../../../../D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/@analogjs/vite-plugin-nitro/src/lib/runtime/api-middleware';
 
 function getEnv(key, opts) {
@@ -115,23 +113,23 @@ new Proxy(/* @__PURE__ */ Object.create(null), {
   }
 });
 
-const serverAssets = [{"baseName":"server","dir":"D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/src/server/assets"}];
+const serverAssets = [{"baseName":"public","dir":"D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/dist/client"},{"baseName":"server","dir":"D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/src/server/assets"}];
 
-const assets = createStorage();
+const assets$1 = createStorage();
 
 for (const asset of serverAssets) {
-  assets.mount(asset.baseName, unstorage_47drivers_47fs({ base: asset.dir }));
+  assets$1.mount(asset.baseName, unstorage_47drivers_47fs({ base: asset.dir }));
 }
 
 const storage = createStorage({});
 
-storage.mount('/assets', assets);
+storage.mount('/assets', assets$1);
 
+storage.mount('data', unstorage_47drivers_47fs_45lite({"driver":"fsLite","base":"D:\\Estee\\Programming\\My-Projects\\analog-testing\\analog-pure-vscode-npm\\.data\\kv"}));
 storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\Estee\\Programming\\My-Projects\\analog-testing\\analog-pure-vscode-npm","ignore":["**/node_modules/**","**/.git/**"]}));
 storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\Estee\\Programming\\My-Projects\\analog-testing\\analog-pure-vscode-npm\\src\\server","ignore":["**/node_modules/**","**/.git/**"]}));
 storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\Estee\\Programming\\My-Projects\\analog-testing\\analog-pure-vscode-npm\\dist\\.nitro","ignore":["**/node_modules/**","**/.git/**"]}));
 storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\Estee\\Programming\\My-Projects\\analog-testing\\analog-pure-vscode-npm\\dist\\.nitro\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"D:\\Estee\\Programming\\My-Projects\\analog-testing\\analog-pure-vscode-npm\\.data\\kv","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -577,13 +575,12 @@ function defineNitroErrorHandler(handler) {
 const errorHandler = defineNitroErrorHandler(
   function defaultNitroErrorHandler(error, event) {
     const { stack, statusCode, statusMessage, message } = normalizeError(error);
-    const showDetails = statusCode !== 404;
     const errorObject = {
       url: event.path || "",
       statusCode,
       statusMessage,
       message,
-      stack: showDetails ? stack.map((i) => i.text) : void 0
+      stack: void 0
     };
     if (error.unhandled || error.fatal) {
       const tags = [
@@ -640,11 +637,163 @@ function renderHTMLError(error) {
 `;
 }
 
-const _lazy_o00kut = () => Promise.resolve().then(function () { return hello$1; });
+const assets = {
+  "/.gitkeep": {
+    "type": "text/plain; charset=utf-8",
+    "etag": "\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\"",
+    "mtime": "2024-03-18T11:54:32.715Z",
+    "size": 0,
+    "path": "../../analog/public/.gitkeep"
+  },
+  "/analog.svg": {
+    "type": "image/svg+xml",
+    "etag": "\"2f59-onYRgu96DadF9OF8r3hf4CPH2vk\"",
+    "mtime": "2024-03-18T11:54:32.771Z",
+    "size": 12121,
+    "path": "../../analog/public/analog.svg"
+  },
+  "/vite.svg": {
+    "type": "image/svg+xml",
+    "etag": "\"5d9-9/Odcje3kalF1Spc16j7Nl8xM2Y\"",
+    "mtime": "2024-03-18T11:54:32.775Z",
+    "size": 1497,
+    "path": "../../analog/public/vite.svg"
+  },
+  "/assets/analogjs-content-Dc2AmBEa.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"21e81-RqBgFdgNI8rAGAMyjnOJxI2ROQE\"",
+    "mtime": "2024-03-18T16:10:40.020Z",
+    "size": 138881,
+    "path": "../../analog/public/assets/analogjs-content-Dc2AmBEa.js"
+  },
+  "/assets/favicon-BYy3mmNz.ico": {
+    "type": "image/vnd.microsoft.icon",
+    "etag": "\"3b4-Ivako7yq+vsCVODy+kzrieUF6LI\"",
+    "mtime": "2024-03-18T16:10:40.018Z",
+    "size": 948,
+    "path": "../../analog/public/assets/favicon-BYy3mmNz.ico"
+  },
+  "/assets/index-BY6XzHS1.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"3cb-sSsHkKuzrfJvVwSTbyJtOZAFlBg\"",
+    "mtime": "2024-03-18T16:10:40.018Z",
+    "size": 971,
+    "path": "../../analog/public/assets/index-BY6XzHS1.css"
+  },
+  "/assets/index-WT68hsYV.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"41d9c-KsWJ2/2SF713vKitKjy7a/9epFg\"",
+    "mtime": "2024-03-18T16:10:40.020Z",
+    "size": 269724,
+    "path": "../../analog/public/assets/index-WT68hsYV.js"
+  },
+  "/assets/index.page-o8VFtT-1.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"51e-Ix/bFnHtcKLxni2W6Di2lJp0Brc\"",
+    "mtime": "2024-03-18T16:10:40.020Z",
+    "size": 1310,
+    "path": "../../analog/public/assets/index.page-o8VFtT-1.js"
+  }
+};
+
+function readAsset (id) {
+  const serverDir = dirname(fileURLToPath(globalThis._importMeta_.url));
+  return promises.readFile(resolve(serverDir, assets[id].path))
+}
+
+const publicAssetBases = {};
+
+function isPublicAssetURL(id = '') {
+  if (assets[id]) {
+    return true
+  }
+  for (const base in publicAssetBases) {
+    if (id.startsWith(base)) { return true }
+  }
+  return false
+}
+
+function getAsset (id) {
+  return assets[id]
+}
+
+const METHODS = /* @__PURE__ */ new Set(["HEAD", "GET"]);
+const EncodingMap = { gzip: ".gz", br: ".br" };
+const _f4b49z = eventHandler((event) => {
+  if (event.method && !METHODS.has(event.method)) {
+    return;
+  }
+  let id = decodePath(
+    withLeadingSlash(withoutTrailingSlash(parseURL(event.path).pathname))
+  );
+  let asset;
+  const encodingHeader = String(
+    getRequestHeader(event, "accept-encoding") || ""
+  );
+  const encodings = [
+    ...encodingHeader.split(",").map((e) => EncodingMap[e.trim()]).filter(Boolean).sort(),
+    ""
+  ];
+  if (encodings.length > 1) {
+    setResponseHeader(event, "Vary", "Accept-Encoding");
+  }
+  for (const encoding of encodings) {
+    for (const _id of [id + encoding, joinURL(id, "index.html" + encoding)]) {
+      const _asset = getAsset(_id);
+      if (_asset) {
+        asset = _asset;
+        id = _id;
+        break;
+      }
+    }
+  }
+  if (!asset) {
+    if (isPublicAssetURL(id)) {
+      removeResponseHeader(event, "Cache-Control");
+      throw createError({
+        statusMessage: "Cannot find static asset " + id,
+        statusCode: 404
+      });
+    }
+    return;
+  }
+  const ifNotMatch = getRequestHeader(event, "if-none-match") === asset.etag;
+  if (ifNotMatch) {
+    setResponseStatus(event, 304, "Not Modified");
+    return "";
+  }
+  const ifModifiedSinceH = getRequestHeader(event, "if-modified-since");
+  const mtimeDate = new Date(asset.mtime);
+  if (ifModifiedSinceH && asset.mtime && new Date(ifModifiedSinceH) >= mtimeDate) {
+    setResponseStatus(event, 304, "Not Modified");
+    return "";
+  }
+  if (asset.type && !getResponseHeader(event, "Content-Type")) {
+    setResponseHeader(event, "Content-Type", asset.type);
+  }
+  if (asset.etag && !getResponseHeader(event, "ETag")) {
+    setResponseHeader(event, "ETag", asset.etag);
+  }
+  if (asset.mtime && !getResponseHeader(event, "Last-Modified")) {
+    setResponseHeader(event, "Last-Modified", mtimeDate.toUTCString());
+  }
+  if (asset.encoding && !getResponseHeader(event, "Content-Encoding")) {
+    setResponseHeader(event, "Content-Encoding", asset.encoding);
+  }
+  if (asset.size > 0 && !getResponseHeader(event, "Content-Length")) {
+    setResponseHeader(event, "Content-Length", asset.size);
+  }
+  return readAsset(id);
+});
+
+const _lazy_o00kut = () => import('./chunks/routes/v1/hello.mjs');
+const _lazy_KYlXqC = () => import('../../../../../../../../../../D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/@analogjs/vite-plugin-nitro/src/lib/runtime/renderer');
 
 const handlers = [
+  { route: '', handler: _f4b49z, lazy: false, middleware: true, method: undefined },
   { route: '/v1/hello', handler: _lazy_o00kut, lazy: true, middleware: false, method: undefined },
-  { route: '', handler: _dFzPJd, lazy: false, middleware: true, method: undefined }
+  { route: '', handler: _dFzPJd, lazy: false, middleware: true, method: undefined },
+  { route: '/**', handler: _lazy_KYlXqC, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -665,7 +814,7 @@ function createNitroApp() {
     }
   };
   const h3App = createApp({
-    debug: destr(true),
+    debug: destr(false),
     onError: (error, event) => {
       captureError(error, { event, tags: ["request"] });
       return errorHandler(error, event);
@@ -769,106 +918,8 @@ function createNitroApp() {
 const nitroApp = createNitroApp();
 const useNitroApp = () => nitroApp;
 
-const scheduledTasks = false;
-
-const tasks = {
-  
-};
-
-const __runningTasks__ = {};
-async function runTask(name, {
-  payload = {},
-  context = {}
-} = {}) {
-  if (__runningTasks__[name]) {
-    return __runningTasks__[name];
-  }
-  if (!(name in tasks)) {
-    throw createError({
-      message: `Task \`${name}\` is not available!`,
-      statusCode: 404
-    });
-  }
-  if (!tasks[name].resolve) {
-    throw createError({
-      message: `Task \`${name}\` is not implemented!`,
-      statusCode: 501
-    });
-  }
-  const handler = await tasks[name].resolve();
-  const taskEvent = { name, payload, context };
-  __runningTasks__[name] = handler.run(taskEvent);
-  try {
-    const res = await __runningTasks__[name];
-    return res;
-  } finally {
-    delete __runningTasks__[name];
-  }
-}
-
-const server = new Server(toNodeListener(nitroApp.h3App));
-function getAddress() {
-  if (provider === "stackblitz" || process.env.NITRO_NO_UNIX_SOCKET || process.versions.bun) {
-    return 0;
-  }
-  const socketName = `worker-${process.pid}-${threadId}.sock`;
-  if (isWindows) {
-    return join("\\\\.\\pipe\\nitro", socketName);
-  } else {
-    const socketDir = join(tmpdir(), "nitro");
-    mkdirSync(socketDir, { recursive: true });
-    return join(socketDir, socketName);
-  }
-}
-const listenAddress = getAddress();
-server.listen(listenAddress, () => {
-  const _address = server.address();
-  parentPort.postMessage({
-    event: "listen",
-    address: typeof _address === "string" ? { socketPath: _address } : { host: "localhost", port: _address.port }
-  });
-});
-nitroApp.router.get(
-  "/_nitro/tasks",
-  defineEventHandler(async (event) => {
-    const _tasks = await Promise.all(
-      Object.entries(tasks).map(async ([name, task]) => {
-        const _task = await task.resolve?.();
-        return [name, { description: _task?.meta?.description }];
-      })
-    );
-    return {
-      tasks: Object.fromEntries(_tasks),
-      scheduledTasks
-    };
-  })
-);
-nitroApp.router.use(
-  "/_nitro/tasks/:name",
-  defineEventHandler(async (event) => {
-    const name = getRouterParam(event, "name");
-    const payload = {
-      ...getQuery$1(event),
-      ...await readBody(event).then((r) => r?.payload).catch(() => ({}))
-    };
-    return await runTask(name, { payload });
-  })
-);
+const localFetch = nitroApp.localFetch;
 trapUnhandledNodeErrors();
-async function onShutdown(signal) {
-  await nitroApp.hooks.callHook("close");
-}
-parentPort.on("message", async (msg) => {
-  if (msg && msg.event === "shutdown") {
-    await onShutdown();
-    parentPort.postMessage({ event: "exit" });
-  }
-});
 
-const hello = defineEventHandler(() => ({ message: "Hello World" }));
-
-const hello$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  default: hello
-});
+export { localFetch };
 //# sourceMappingURL=index.mjs.map
