@@ -3,21 +3,20 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { parentPort, threadId } from 'node:worker_threads';
-import { provider, isWindows } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/std-env/dist/index.mjs';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, fetchWithEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseStatus, setResponseHeader, send, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, createError, getRouterParam, getQuery as getQuery$1, readBody } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/h3/dist/index.mjs';
-import { createFetch as createFetch$1, Headers as Headers$1 } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/ofetch/dist/node.mjs';
-import destr from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/destr/dist/index.mjs';
-import { createCall, createFetch } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/unenv/runtime/fetch/index.mjs';
-import { createHooks } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/hookable/dist/index.mjs';
-import { klona } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/klona/dist/index.mjs';
-import { snakeCase } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/scule/dist/index.mjs';
-import defu, { defuFn } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/defu/dist/defu.mjs';
-import { hash } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/ohash/dist/index.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/ufo/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/unstorage/drivers/fs.mjs';
-import { toRouteMatcher, createRouter } from 'file://D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/radix3/dist/index.mjs';
-import _dFzPJd from '../../../../../../../../../../D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/node_modules/@analogjs/vite-plugin-nitro/src/lib/runtime/api-middleware';
+import { provider, isWindows } from 'file:///workspaces/analog-testing/analog-pure-vscode-npm/node_modules/std-env/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, fetchWithEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseStatus, setResponseHeader, send, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, createError, getRouterParam, getQuery as getQuery$1, readBody } from 'file:///workspaces/analog-testing/analog-pure-vscode-npm/node_modules/h3/dist/index.mjs';
+import { createFetch as createFetch$1, Headers as Headers$1 } from 'file:///workspaces/analog-testing/analog-pure-vscode-npm/node_modules/ofetch/dist/node.mjs';
+import destr from 'file:///workspaces/analog-testing/analog-pure-vscode-npm/node_modules/destr/dist/index.mjs';
+import { createCall, createFetch } from 'file:///workspaces/analog-testing/analog-pure-vscode-npm/node_modules/unenv/runtime/fetch/index.mjs';
+import { createHooks } from 'file:///workspaces/analog-testing/analog-pure-vscode-npm/node_modules/hookable/dist/index.mjs';
+import { klona } from 'file:///workspaces/analog-testing/analog-pure-vscode-npm/node_modules/klona/dist/index.mjs';
+import { snakeCase } from 'file:///workspaces/analog-testing/analog-pure-vscode-npm/node_modules/scule/dist/index.mjs';
+import defu, { defuFn } from 'file:///workspaces/analog-testing/analog-pure-vscode-npm/node_modules/defu/dist/defu.mjs';
+import { hash } from 'file:///workspaces/analog-testing/analog-pure-vscode-npm/node_modules/ohash/dist/index.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery } from 'file:///workspaces/analog-testing/analog-pure-vscode-npm/node_modules/ufo/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file:///workspaces/analog-testing/analog-pure-vscode-npm/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file:///workspaces/analog-testing/analog-pure-vscode-npm/node_modules/unstorage/drivers/fs.mjs';
+import { toRouteMatcher, createRouter } from 'file:///workspaces/analog-testing/analog-pure-vscode-npm/node_modules/radix3/dist/index.mjs';
 
 function getEnv(key, opts) {
   const envKey = snakeCase(key).toUpperCase();
@@ -115,7 +114,7 @@ new Proxy(/* @__PURE__ */ Object.create(null), {
   }
 });
 
-const serverAssets = [{"baseName":"server","dir":"D:/Estee/Programming/My-Projects/analog-testing/analog-pure-vscode-npm/src/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/workspaces/analog-testing/analog-pure-vscode-npm/src/server/assets"}];
 
 const assets = createStorage();
 
@@ -127,11 +126,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\Estee\\Programming\\My-Projects\\analog-testing\\analog-pure-vscode-npm","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\Estee\\Programming\\My-Projects\\analog-testing\\analog-pure-vscode-npm\\src\\server","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\Estee\\Programming\\My-Projects\\analog-testing\\analog-pure-vscode-npm\\dist\\.nitro","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\Estee\\Programming\\My-Projects\\analog-testing\\analog-pure-vscode-npm\\dist\\.nitro\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"D:\\Estee\\Programming\\My-Projects\\analog-testing\\analog-pure-vscode-npm\\.data\\kv","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/workspaces/analog-testing/analog-pure-vscode-npm","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/workspaces/analog-testing/analog-pure-vscode-npm/src/server","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/workspaces/analog-testing/analog-pure-vscode-npm/dist/.nitro","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/workspaces/analog-testing/analog-pure-vscode-npm/dist/.nitro/cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/workspaces/analog-testing/analog-pure-vscode-npm/.data/kv","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -640,11 +639,42 @@ function renderHTMLError(error) {
 `;
 }
 
-const _lazy_o00kut = () => Promise.resolve().then(function () { return hello$1; });
+/**
+ * This file is written in JavaScript
+ * because it is used by Nitro to build
+ * the renderer for SSR.
+ *
+ * The package is shipped as commonjs
+ * which won't be parsed by Nitro correctly.
+ */
+
+const _Gw3l43 = eventHandler(async (event) => {
+  // @ts-ignore
+  const apiPrefix = `/${globalThis._importMeta_.env.RUNTIME_CONFIG?.apiPrefix ?? 'api'}`;
+  if (event.node.req.url?.startsWith(apiPrefix)) {
+    const reqUrl = event.node.req.url?.replace(apiPrefix, '');
+
+    if (
+      event.node.req.method === 'GET' &&
+      // in the case of XML routes, we want to proxy the request so that nitro gets the correct headers
+      // and can render the XML correctly as a static asset
+      !event.node.req.url?.endsWith('.xml')
+    ) {
+      return $fetch(reqUrl, { headers: event.node.req.headers });
+    }
+
+    return proxyRequest(event, reqUrl, {
+      // @ts-ignore
+      fetch: $fetch.native,
+    });
+  }
+});
+
+const _lazy_GNOGtk = () => Promise.resolve().then(function () { return hello$1; });
 
 const handlers = [
-  { route: '/v1/hello', handler: _lazy_o00kut, lazy: true, middleware: false, method: undefined },
-  { route: '', handler: _dFzPJd, lazy: false, middleware: true, method: undefined }
+  { route: '/v1/hello', handler: _lazy_GNOGtk, lazy: true, middleware: false, method: undefined },
+  { route: '', handler: _Gw3l43, lazy: false, middleware: true, method: undefined }
 ];
 
 function createNitroApp() {
