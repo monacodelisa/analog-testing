@@ -32,5 +32,13 @@ However in the newer version, this is not happening
 ### the previous app, which runs fine with `npm start` is giving me an error during build
 
 ```
+An unhandled exception occurred: Could not load file://D:/Estee/Programming/My-Open-Source/AnguHashBlog/analog-spartan/analog-spartan-app/dist/ssr/main.server (imported by node_modules/@analogjs/vite-plugin-nitro/src/lib/runtime/renderer.js): ENOENT: no such file or directory, open 'D:\Estee\Programming\My-Open-Source\AnguHashBlog\analog-spartan\analog-spartan-app\file:\D:\Estee\Programming\My-Open-Source\AnguHashBlog\analog-spartan\analog-spartan-app\dist\ssr\main.server'
+See "C:\Users\estee\AppData\Local\Temp\ng-rRvNIG\angular-errors.log" for further details.
+```
 
+the apps here throw this error during build 
+
+```
+An unhandled exception occurred: Cannot find module 'D:\D:\Estee\Programming\My-Projects\analog-testing\analog-pure-vscode-npm\node_modules\@analogjs\vite-plugin-nitro\src\lib\runtime\api-middleware' imported from D:\Estee\Programming\My-Projects\analog-testing\analog-pure-vscode-npm\dist\.nitro\prerender\index.mjs
+See "C:\Users\estee\AppData\Local\Temp\ng-Zi1GUH\angular-errors.log" for further details.
 ```
