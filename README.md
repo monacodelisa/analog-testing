@@ -36,9 +36,17 @@ An unhandled exception occurred: Could not load file://D:/Estee/Programming/My-O
 See "C:\Users\estee\AppData\Local\Temp\ng-rRvNIG\angular-errors.log" for further details.
 ```
 
-the apps here throw this error during build 
+I feel like there is something related to the file path here also
+
+
+### the apps here throw this error during build 
 
 ```
 An unhandled exception occurred: Cannot find module 'D:\D:\Estee\Programming\My-Projects\analog-testing\analog-pure-vscode-npm\node_modules\@analogjs\vite-plugin-nitro\src\lib\runtime\api-middleware' imported from D:\Estee\Programming\My-Projects\analog-testing\analog-pure-vscode-npm\dist\.nitro\prerender\index.mjs
 See "C:\Users\estee\AppData\Local\Temp\ng-Zi1GUH\angular-errors.log" for further details.
 ```
+
+I just noticed `D:\D:\` ;)
+
+as much as I like the thought of double `D`s I rather not have them in this context 
+
