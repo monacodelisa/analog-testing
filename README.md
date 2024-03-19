@@ -1,6 +1,23 @@
 # analog-testing
 
-## Update 
+## Update -2
+
+| Environment | Codespaces               | Windows                  |
+|-------------|--------------------------|--------------------------|
+| create command | `npm create analog@latest` | `npm create analog@latest` |
+| next step | `npm i` | `npm i` |
+| on `npm start` generation of `dist` | ✅ | ✅ |
+| subfolders `.nitro/dev` and `.nitro/types` | ✅ | ✅ | 
+| generation of `nitro.json` | ✅ | ❌ |
+
+one more difference (only on Windows) in `dist/dev/index.mjs` there is this:
+
+```
+import _Ms4j2w from '../../../../../../../../../../D:/Estee/Programming/My-Projects/analog-testing/analog-fifth-app/node_modules/@analogjs/vite-plugin-nitro/src/lib/runtime/api-middleware';
+```
+which keeps getting re-generated on `npm-start` 
+
+## Update -1
 
 Since the issue is OS related I decided to try running the app in github codespaces
 on the first `npm i` i got: 
